@@ -12,14 +12,19 @@ shinyUI(pageWithSidebar(
           all possible values will be shown with the the odds for the 
           entered value highlighted in red."),
         p("This might be useful, for instance, in a particularly heated
-          Monopoly or backgammon game. However, it's unlikely to help
-          your chess game very much.")
+          game of Monopoly or backgammon. However, it's unlikely to help
+          you in a game of chess.")
     ),
     mainPanel(
         plotOutput("plot"),
         h4("Value you entered:"),
         verbatimTextOutput("oid1"),
         h4("Odds of rolling value:"),
-        verbatimTextOutput("oodds")
+        verbatimTextOutput("oodds"),
+        hr(),
+        p(em("Source code is available at:",
+        a("https://github.com/bitsofbits/CourseraDataProducts", 
+           href="https://github.com/bitsofbits/CourseraDataProducts")))
+        
     )
 ))
