@@ -1,0 +1,73 @@
+2D6 Computor
+========================================================
+author: Timothy Hochberg
+date: 9/23/2015
+
+repo: https://github.com/bitsofbits/CourseraDataProducts
+
+2D6 Computor
+========================================================
+
+A tool for computing the odds
+
+- Computes the odds of rolling values on 2, 6-sided dice
+    - Common feature of many board games
+- Knowing the odds important for game strategy
+    - note -- some board games have no appreciable strategy
+- Who can remember the odds of rolling a given number?
+
+Probability of Guessing the Odds
+========================================================
+
+Unless you do some *highly* sophisticated math, the probability
+of *randomly* guessing the odds is vanishingly small.
+
+```{r}
+odds_of_4 = 3 / 36
+
+one_million_guesses = runif(1000000)
+
+sum(one_million_guesses == odds_of_4)
+
+```
+- Out of one million guesses, not one is right!
+- This is why you need *2D6 Computor*
+
+
+Alternative Heuristics
+========================================================
+
+Question: "The distribution is uniform for 1 die; can I use that for 2 dice?
+
+```{r, echo=FALSE}
+counts = rep(0, 13)
+names(counts) = 1:13
+for (i in 1:6 ) {
+    for (j in 1:6) {
+        counts[i+j] = counts[i+j] + 1;
+    }   
+}
+
+barplot(counts, xlab="total of two six-sided dice", border="blue", ylab="odds (x 36)", ylim=c(0,6))
+par(new=TRUE)
+barplot(c(rep(3, 12), 0), col=NA, border="red", ylim=c(0,6), 
+        main="Actual Probability Distribution versus Uniform Distribtion")
+```
+
+Answer: No, not unless you want to lose!
+
+
+Win Using 2D6 Computor
+========================================================
+
+- Guessing doesn't work
+- Heuristics don't work
+- Only *2d6 Computor* gives you the edge you need to
+    - crush your enemies
+    - see them driven before you
+    - and, well, you get the idea...
+    
+    
+Try [2d6 Computor](https://bitsofbits.shinyapps.io/ShinyProject) now!
+
+

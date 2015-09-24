@@ -1,7 +1,7 @@
 library(shiny)
 
 shinyUI(pageWithSidebar(
-    headerPanel("Odds of Rolling a Given Value on Two Six-Sided Dice"),
+    headerPanel("2D6 Computor"),
     sidebarPanel(
         numericInput("id1", "Value", 7, min=1, max=100, step=1),
         h4("Instructions:"),
@@ -16,6 +16,7 @@ shinyUI(pageWithSidebar(
           you in a game of chess.")
     ),
     mainPanel(
+        h2("Odds of Rolling Value on Two Six-Sided Dice"),
         plotOutput("plot"),
         h4("Value you entered:"),
         verbatimTextOutput("oid1"),

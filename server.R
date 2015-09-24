@@ -16,7 +16,7 @@ shinyServer(
             if (!is.na(input$id1) && is.integer(input$id1) && (input$id1 > 0)) {
                 colors[input$id1] = "red"
             }
-            barplot(counts, col=colors, xlab="target value", ylab="odds (x 36)")
+            barplot(counts, col=colors, xlab="total of two six sided dice", ylab="odds (x 36)")
         })
 
     	output$oid1 <- renderText({input$id1})
